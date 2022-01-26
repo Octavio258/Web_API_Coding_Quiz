@@ -23,11 +23,11 @@
     color: var(--minor);
 }
 
-#questions {
+#questionsli {
     margin: var(--size);
 }
 
-#Timer {
+#timer {
     float: right;
 }
 
