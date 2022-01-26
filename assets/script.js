@@ -46,7 +46,7 @@ var penalty =  15;
 var holdInterval = 0;
 var ulCreate = document.createElement('ul');
 
-timer.addEventListener('click', function() {
+start.addEventListener('click', function() {
     if (holdInterval === 0) {
         holdInterval = setInterval(function() {
             timeLeft--;
