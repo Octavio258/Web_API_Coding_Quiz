@@ -38,9 +38,9 @@ var questions = [
 // starting code
 
 var timer = document.querySelector('#timer');
-var start = document.querySelector('#start');
+var start = document.querySelector('#Start');
 var questionsli = document.querySelector('#questionsli');
-var wrapper = document.querySelector('wrapper');
+var wrapper = document.querySelector('#wrapper');
 var timeLeft = 75;
 var penalty =  15;
 var holdInterval = 0;
@@ -57,7 +57,7 @@ start.addEventListener('click', function() {
                 Buzzer();
                 timer.textContent = 'Beep! Mouses down, time is up!';
             }
-        }, 1000)
+        }, 1000);
     }
     render(questionConsole);
 });
