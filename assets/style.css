@@ -1,0 +1,51 @@
+:root {
+    --main: purple;
+    --minor: white;
+    --other: gray;
+    --size: 20px;
+}
+
+#wrapper {
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    width: 500px;
+    height: 500px;
+    border: 1px solid var(--main);
+    border-radius: var(--size);
+}
+
+#start {
+    background-color: var(--main);
+    margin-left: 30%;
+    padding: 15px 30px;
+    font-size: var(--size);
+    color: var(--minor);
+}
+
+#questions {
+    margin: var(--size);
+}
+
+#Timer {
+    float: right;
+}
+
+button {
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {
+    background-color: var(--main);
+    margin-top: 10px;
+    padding: 5px 10px;
+    width: 80%;
+    font-size: 15px;
+    color: var(--minor);
+    border-radius: var(--size);
+    text-align: center;
+}
