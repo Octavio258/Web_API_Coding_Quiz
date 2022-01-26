@@ -119,4 +119,45 @@ function Buzzer() {
         newP.textContent = 'Your score is: ' + timeRemaining;
         questionsli.appendChild(secondP);
     }
+
+    var newLabel = document.createElement('label');
+    newLabel.setAttribute('id', 'newLabel');
+    newLabel.textContent = 'Enter name: ';
+    questionsli.appendChild(newLabel);
+
+    var usrInput = document.createElement('input');
+    usrInput.setAttribute('type', 'text');
+    usrInput.setAttribute('id', 'AlphaBeta');
+    usrInput.textContent = '';
+    questionsli.appendChild(usrInput);
+
+    var newSubmit = document.createElement('button');
+    newSubmit.setAttribute('type', 'submit');
+    newSubmit.setAttribute('id', 'submit');
+    newSubmit.textContent = 'Submit';
+    questionsli.appendChild('click', function() {
+        var AlphaBeta = usrInput.value;
+        if (AlphaBeta === null) {
+            console.log('I get you want to be mysterious, but you have to put something in');
+        } else {
+            var finalScore = {
+                AlphaBeta: AlphaBeta,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+            var scoreBoard = localStorage.getItem('scoreBoard');
+            if (scoreBoard === null) {
+                scoreBoard = [];
+            } else {
+                scoreBoard = JSON.parse(scoreBoard);
+            }
+            scoreBoard.push(finalScore);
+            var newScore = JSON.stringify(scoreBoard);
+            localStorage.setItem('scoreBoard', newScore);
+            window.location.replace('./HighScores.html');
+        }
+    });
+
+
+
 }
