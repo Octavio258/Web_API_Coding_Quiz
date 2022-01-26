@@ -46,3 +46,18 @@ var penalty =  15;
 var holdInterval = 0;
 var ulCreate = document.createElement('ul');
 
+timer.addEventListener('click', function() {
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function() {
+            timeLeft--;
+            timer.textContent = 'Time: ' + timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(holdInterval);
+                allDone();
+                timer.textContent = 'Beep! Mouses down, time is up!';
+            }
+        }, 1000)
+    }
+    render(questionConsole);
+});
