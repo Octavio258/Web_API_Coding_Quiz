@@ -104,7 +104,7 @@ function compare(event) {
 
 function Buzzer() {
     questionsli.innerHTML = '';
-    currentTime.innerHTML = '';
+    timer.innerHTML = '';
     var newH1 = document.createElement('h1');
     newH1.setAttribute('id', 'newH1');
     newH1.textContent = 'Bzzz! All Done!';
@@ -133,9 +133,10 @@ function Buzzer() {
 
     var newSubmit = document.createElement('button');
     newSubmit.setAttribute('type', 'submit');
-    newSubmit.setAttribute('id', 'submit');
+    newSubmit.setAttribute('id', 'Submit');
     newSubmit.textContent = 'Submit';
-    questionsli.appendChild('click', function() {
+    questionsli.appendChild(newSubmit);
+    questionsli.addEventListener('click', function() {
         var AlphaBeta = usrInput.value;
         if (AlphaBeta === null) {
             console.log('I get you want to be mysterious, but you have to put something in');
