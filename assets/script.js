@@ -154,8 +154,8 @@ function Buzzer() {
             }
             scoreBoard.push(finalScore);
             var newScore = JSON.stringify(scoreBoard);
-            localStorage.setItem('scoreBoard', newScore);
-            window.location.replace('./HighScores.html');
+            localStorage.setItem('highScores', newScore);
+            window.location.replace('./ScoreBoard.html');
         }
     });
 
