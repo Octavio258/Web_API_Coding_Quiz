@@ -54,10 +54,69 @@ start.addEventListener('click', function() {
 
             if (timeLeft <= 0) {
                 clearInterval(holdInterval);
-                allDone();
+                Buzzer();
                 timer.textContent = 'Beep! Mouses down, time is up!';
             }
         }, 1000)
     }
     render(questionConsole);
 });
+
+function render(questionConsole) {
+    questionsli.innerHTML = '';
+    ulCreate.innerHTML = '';
+    for (var i = 0; i < questions.length; i++) {
+        var usrQuestion = questions[questionConsole].title;
+        var usrChoices = questions[questionConsole].choices;
+        questionsli.textContent = usrQuestion;
+    }
+    usrChoices.forEach(function (newItem) {
+        var listItem = document.createElement('li');
+        listItem.textContent = newItem;
+        questionsli.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener('click', (compare));
+    })
+}
+
+function compare(event) {
+    var element = event.target;
+    if (element.matches('li')) {
+        var newDiv = document.createElement('div');
+        newDiv.setAttribute('id', 'newDiv');
+        if (element.textContent == questions[questionConsole].answer) {
+            score++;
+            newDiv.textContent = 'Bingo!! the correct answer is: ' + questions[questionConsole].answer;
+        } else {
+            timeLeft = timeLeft - penalty;
+            newDiv.textContent = 'Wrong :^( the right answer is: ' + questions[questionConsole].answer;
+        }
+    }
+    questionConsole++;
+    if (questionConsole >= questions.length) {
+        Buzzer();
+        newDiv.textContent = 'Times up!' + '' + 'you got ' + score + '/' + questions.length + ' right!';
+    } else {
+        render(questionConsole);
+    }
+    questionsli.appendChild(newDiv);
+}
+
+function Buzzer() {
+    questionsli.innerHTML = '';
+    currentTime.innerHTML = '';
+    var newH1 = document.createElement('h1');
+    newH1.setAttribute('id', 'newH1');
+    newH1.textContent = 'Bzzz! All Done!';
+    questionsli.appendChild(newH1);
+    var newP = document.createElement('p');
+    newP.setAttribute('id', 'newP');
+    questionsli.appendChild(newP);
+    if (timeLeft >= 0) {
+        var timeRemaining = timeLeft;
+        var secondP = document.createElement('p');
+        clearInterval(holdInterval);
+        newP.textContent = 'Your score is: ' + timeRemaining;
+        questionsli.appendChild(secondP);
+    }
+}
