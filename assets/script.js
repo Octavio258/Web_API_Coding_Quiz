@@ -34,3 +34,15 @@ var questions = [
         answer: 'all of the above'
     },
 ];
+
+// starting code
+
+var timer = document.querySelector('#timer');
+var start = document.querySelector('#start');
+var questionsli = document.querySelector('#questionsli');
+var wrapper = document.querySelector('wrapper');
+var timeLeft = 75;
+var penalty =  15;
+var holdInterval = 0;
+var ulCreate = document.createElement('ul');
+
